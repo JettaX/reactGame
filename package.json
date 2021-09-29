@@ -1,5 +1,5 @@
 {
-  "name": "react-js-tutorial",
+  "name": "react-game",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,11 +7,8 @@
     "start": "npx webpack-dev-server --mode development --open --hot",
     "build": "npx webpack --mode production",
     "lint": "npx eslint --ext .js,.jsx,.ts,.tsx --fix ./",
-    "loki:update": "npm run build-storybook && npx loki update --requireReference --reactUri file:./storybook-static",
-    "loki:approve": "npx loki approve",
     "test": "npx jest",
-    "test:loki": "npm run build-storybook && npx loki --requireReference --reactUri file:./storybook-static",
-    "check": "npm run lint && npm test && npm run test:loki",
+    "check": "npm run lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -21,16 +18,6 @@
       "pre-push": "npm run check"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nickovchinnikov/react-js-tutorial.git"
-  },
-  "author": "Nick Ovchinnikov",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nickovchinnikov/react-js-tutorial/issues"
-  },
-  "homepage": "https://github.com/nickovchinnikov/react-js-tutorial#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -61,11 +48,11 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
     "html-webpack-plugin": "^4.0.3",
     "husky": "^4.2.3",
     "jest": "^25.2.4",
     "jest-emotion": "^10.0.32",
-    "loki": "^0.20.3",
     "prettier": "^2.0.2",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-test-renderer": "^16.13.1",
@@ -80,23 +67,10 @@
     "@emotion/core": "^10.0.28",
     "@emotion/css": "^11.1.3",
     "@emotion/styled": "^10.0.27",
+    "@types/react-router-dom": "^5.3.0",
     "formik": "^2.1.4",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "loki": {
-    "configurations": {
-      "chrome.laptop": {
-        "target": "chrome.docker",
-        "width": 1366,
-        "height": 768,
-        "deviceScaleFactor": 1,
-        "mobile": false
-      },
-      "chrome.iphone7": {
-        "target": "chrome.docker",
-        "preset": "iPhone 7"
-      }
-    }
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.3.0"
   }
 }

@@ -4,7 +4,8 @@ import { GameSettingsFormProps } from "./interfaces";
 import {
   SettingFieldSetInner,
   WrapperForm,
-  SettingFieldSetMain, Button
+  SettingFieldSetMain,
+  Button,
 } from "./style";
 
 export class GameSetting extends React.Component<GameSettingsFormProps, never> {

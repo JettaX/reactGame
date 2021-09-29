@@ -4,6 +4,9 @@ import { GameSettingsFormResult } from "./componets/gameSetting/interfaces";
 import { GameState, Player } from "./interfaces";
 import { GameField } from "./componets/gameField/gameField";
 import { GameBase } from "./style";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { cx } from "@emotion/css";
+import { LinkStyle } from "../style";
 
 const player1: Player = {
   name: "Bob",
@@ -20,7 +23,7 @@ const initialForm: GameSettingsFormResult = {
   player2: player2,
 };
 
-export class Game extends React.Component<never, GameState> {
+export class Game extends React.Component<{}, GameState> {
   constructor(props: never) {
     super(props);
     this.state = {
@@ -51,14 +54,30 @@ export class Game extends React.Component<never, GameState> {
   render() {
     return (
       <GameBase>
-        <GameSetting
-          initialPlayers={initialForm}
-          onSubmit={(settings, actions) => this.handler(settings, actions)}
-        />
-        <GameField
-          player1={this.state.playerOne}
-          player2={this.state.playerTwo}
-        />
+        <Router>
+          <Link className={cx(LinkStyle)} to="/Setting">
+            Settings
+          </Link>
+          <Link className={cx(LinkStyle)} to="/GameField">
+            Game
+          </Link>
+          <Switch>
+            <Route exact path="/Setting">
+              <GameSetting
+                initialPlayers={initialForm}
+                onSubmit={(settings, actions) =>
+                  this.handler(settings, actions)
+                }
+              />
+            </Route>
+            <Route exact path="/GameField">
+              <GameField
+                player1={this.state.playerOne}
+                player2={this.state.playerTwo}
+              />
+            </Route>
+          </Switch>
+        </Router>
       </GameBase>
     );
   }
