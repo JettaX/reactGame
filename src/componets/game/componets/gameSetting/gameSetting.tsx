@@ -9,10 +9,6 @@ import {
 } from "./style";
 
 export class GameSetting extends React.Component<GameSettingsFormProps, never> {
-  constructor(props: GameSettingsFormProps) {
-    super(props);
-  }
-
   render() {
     return (
       <Formik
